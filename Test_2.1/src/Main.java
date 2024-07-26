@@ -1,25 +1,51 @@
 import java.util.Scanner;
+
 public class Main {
+    public Main() {
+
+    }
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите значение a");
-        int a = scan.nextInt();
-        System.out.println("Введите значение b");
-        int b = scan.nextInt();
-        System.out.println("Результат сложения");
-        System.out.println(a + b);
-        System.out.println("Результат вычитания");
-        System.out.println(a - b);
-        System.out.println("Результат деления");
-        System.out.println(a / b);
-        System.out.println("Результат умножения");
-        System.out.println(a * b);
-        if (a < b) {
-            System.out.println("a меньше b");
-        } else if (a > b) {
-            System.out.println("a больше b");
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод двух целых чисел
+        System.out.print("Введите первое целое число (a): ");
+        int a = scanner.nextInt();
+        System.out.print("Введите второе целое число (b): ");
+        int b = scanner.nextInt();
+
+        // Сравнение чисел
+        if (a > b) {
+            System.out.println("a > b");
+        } else if (a < b) {
+            System.out.println("a < b");
         } else {
-            System.out.println("a равно b");
+            System.out.println("a = b");
         }
+
+        // Арифметические операции
+        int sum = a + b;
+        int difference = a - b;
+        int product = a * b;
+        double quotient;
+
+        // Проверка деления на ноль
+        if (b != 0) {
+            quotient = (double) a / b;
+        } else {
+            quotient = Double.NaN; // "не число", обозначение ошибки деления на ноль
+        }
+
+        // Вывод результатов арифметических операций
+        System.out.println("Сумма: " + a + " + " + b + " = " + sum);
+        System.out.println("Разность: " + a + " - " + b + " = " + difference);
+        System.out.println("Умножение: " + a + " * " + b + " = " + product);
+        if (b != 0) {
+            System.out.println("Деление: " + a + " / " + b + " = " + quotient);
+        } else {
+            System.out.println("Деление: " + a + " / " + b + " = деление на ноль невозможно");
+        }
+
+        scanner.close();
     }
 }
